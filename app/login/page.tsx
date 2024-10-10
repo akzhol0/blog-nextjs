@@ -1,7 +1,7 @@
 'use client';
 
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { auth } from '.././firebase/firebase';
 import MyButton from '@/components/ui/MyButton';
 import Link from 'next/link';
@@ -12,7 +12,6 @@ function Login() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
 
   function SignIn(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,7 +26,7 @@ function Login() {
       })
       .catch((error) => {
         console.log(error);
-        // setError(error.message);
+        setError(error.message);
       });
   }
 

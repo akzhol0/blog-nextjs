@@ -1,9 +1,7 @@
 'use client';
 
-import { Metadata } from 'next';
 import React, { useContext } from 'react';
 import { contextData } from '@/components/context/context';
-
 
 function Profile() {
   const { userInfo } = useContext(contextData);
