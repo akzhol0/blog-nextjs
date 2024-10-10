@@ -27,7 +27,7 @@ export function ContextOverAll({ children }: ContextOverAllProps) {
   const checkUserLogged = async () => {
     const res = localStorage.getItem('user');
     const user = res ? JSON.parse(res) : null;
-    
+
     if (user !== null) {
       setAuth(true);
       setUserInfo(user);
