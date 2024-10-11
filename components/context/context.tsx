@@ -7,6 +7,7 @@ type ContextProps = {
   setAuth: (arg0: boolean) => void;
   userInfo: any;
   setUserInfo: (arg0: any) => void;
+  checkUserLogged: () => void;
 };
 
 export const contextData = createContext({} as ContextProps);
@@ -41,6 +42,7 @@ export function ContextOverAll({ children }: ContextOverAllProps) {
         setAuth,
         userInfo,
         setUserInfo,
+        checkUserLogged,
       }}>
       {children}
     </contextData.Provider>

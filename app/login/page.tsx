@@ -6,12 +6,14 @@ import { auth } from '.././firebase/firebase';
 import MyButton from '@/components/ui/MyButton';
 import Link from 'next/link';
 import { contextData } from '@/components/context/context';
+import { useRouter } from 'next/navigation';
 
 function Login() {
-  const { setUserInfo, setAuth } = useContext(contextData);
+  const { setUserInfo, setAuth, checkUserLogged } = useContext(contextData);
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const router = useRouter();
 
   function SignIn(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -23,6 +25,8 @@ function Login() {
 
         const obj = userCredential.user;
         localStorage.setItem('user', JSON.stringify(obj));
+        checkUserLogged();
+        router.push('/');
       })
       .catch((error) => {
         console.log(error);
